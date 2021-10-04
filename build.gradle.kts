@@ -3,8 +3,17 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	id("org.springframework.boot") version "2.6.0-SNAPSHOT"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
+	id("io.qameta.allure") version "2.9.4"
 	kotlin("jvm") version "1.5.31"
 	kotlin("plugin.spring") version "1.5.31"
+}
+
+allure {
+	adapter {
+		frameworks {
+			junit5
+		}
+	}
 }
 
 group = "br.com.cassio.paixao"
@@ -24,6 +33,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.mockk:mockk:1.10.4")
+	allureRawResultElements(files("$buildDir/custom-allure-results"))
 }
 
 tasks.withType<KotlinCompile> {

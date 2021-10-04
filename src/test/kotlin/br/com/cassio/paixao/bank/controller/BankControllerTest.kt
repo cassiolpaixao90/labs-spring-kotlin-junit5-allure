@@ -1,5 +1,7 @@
 package br.com.cassio.paixao.bank.controller
 
+import io.qameta.allure.Epic
+import io.qameta.allure.Feature
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,6 +13,8 @@ import org.springframework.test.web.servlet.get
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@Epic("BankControllerTest")
+@Feature("IBankControllerTest")
 internal class BankControllerTest {
 
     @Autowired
